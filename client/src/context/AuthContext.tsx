@@ -47,11 +47,6 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     setUser(getUserFromStorage());
   }, []);
 
-
-  const updateRegisterInfo = useCallback((info: RegisterInfo) => {
-    setRegisterInfo(info)
-  }, []);
-
   const registerUser = useCallback(async (e: FormEvent) => {
     e.preventDefault();
     setIsRegisterLoading(true);
@@ -66,7 +61,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     }
 
     localStorage.setItem("User", JSON.stringify(res.data));
-    setUser(res);
+    setUser(res.data);
   }, [registerInfo]);
 
   const loginUser = useCallback(async (e: FormEvent) => {
@@ -83,7 +78,7 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     }
 
     localStorage.setItem("User", JSON.stringify(res.data));
-    setUser(res);
+    setUser(res.data);
   }, [loginInfo]);
 
   const logoutUser = useCallback(() => {
