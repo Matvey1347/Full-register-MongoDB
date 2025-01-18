@@ -3,7 +3,7 @@ const validator = require("validator");
 const jwt = require("jsonwebtoken");
 const userModel = require("../Models/userModel");
 const sendResponse = require("../middleware/responseHandler")
-const errorMessages = require("../errorMessages");
+const { errorMessages } = require("../errorMessages");
 
 const createToken = (_id) => {
   const jwtKey = process.env.JWT_SECRET_KEY;
@@ -49,6 +49,10 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   const { email, password } = req.body;
+
+  if (!email || !password)
+    return sendResponse(res, errorMessages.allFieldsRequired, 400);
+
   try {
     let user = await userModel.findOne({ email });
 

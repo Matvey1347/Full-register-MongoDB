@@ -10,4 +10,4 @@ const errorMessages = {
   userNotFound: "User not found"
 };
 
-module.exports = errorMessages; 
+module.exports = { errorMessages }; 

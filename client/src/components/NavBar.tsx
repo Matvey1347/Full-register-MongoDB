@@ -11,7 +11,7 @@ const NavBar = () => {
         <h2>
           <Link to="/" className="link-light text-decoration-none">User app</Link>
         </h2>
-        {user ? <span className="text-color-pink">Logged in as {user?.name}</span> : ""}
+        {user ? <span className="text-white">Logged in as {user?.name}</span> : ""}
         <Nav>
           <Stack direction="horizontal" gap={3}>
             {user ? (

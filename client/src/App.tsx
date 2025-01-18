@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <Container className="text-white">
+      <Container>
         <Routes>
           <Route path="/" element={user ? <MainPage /> : <LoginPage />} />
           <Route path="/register" element={user ? <MainPage /> : <RegisterPage />} />
